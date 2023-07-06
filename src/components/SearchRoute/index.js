@@ -88,7 +88,7 @@ class SearchRoute extends Component {
         />
         <p className="no-result-text">
           {`
-          Your search for ${searchInput} did not find any matches.`}
+          Your search for ${searchInput} did not find any matches .`}
         </p>
       </div>
     )

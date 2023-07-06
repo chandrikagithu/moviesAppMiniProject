@@ -1,10 +1,18 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import {Redirect} from 'react-router-dom'
+import {AiOutlineEye, AiOutlineEyeInvisible} from 'react-icons/ai'
+
 import './index.css'
 
 class LoginRoute extends Component {
-  state = {username: '', password: '', showErrorMsg: false, errorMsg: ''}
+  state = {
+    username: '',
+    password: '',
+    showErrorMsg: false,
+    errorMsg: '',
+    passwordType: 'password',
+  }
 
   onChangeUsername = event => {
     this.setState({username: event.target.value, showErrorMsg: false})
@@ -12,6 +20,15 @@ class LoginRoute extends Component {
 
   onChangePassword = event => {
     this.setState({password: event.target.value, showErrorMsg: false})
+  }
+
+  togglePassword = () => {
+    const {passwordType} = this.state
+    if (passwordType === 'password') {
+      this.setState({passwordType: 'text'})
+      return
+    }
+    this.setState({passwordType: 'password'})
   }
 
   onSubmitSuccess = jwtToken => {
@@ -51,6 +68,7 @@ class LoginRoute extends Component {
         <label className="label" htmlFor="user">
           USERNAME
         </label>
+
         <input
           type="text"
           id="user"
@@ -64,21 +82,34 @@ class LoginRoute extends Component {
   }
 
   renderPassword = () => {
-    const {password} = this.state
+    const {password, passwordType} = this.state
 
     return (
       <>
         <label className="label" htmlFor="password">
           PASSWORD
         </label>
-        <input
-          type="password"
-          id="password"
-          onChange={this.onChangePassword}
-          value={password}
-          className="input-field"
-          placeholder="Password"
-        />
+        <div className="input-field">
+          <input
+            type={passwordType}
+            id="password"
+            onChange={this.onChangePassword}
+            value={password}
+            className="input-value-field"
+            placeholder="Password"
+          />
+          <button
+            className="btn btn-outline-primary eye-button"
+            onClick={this.togglePassword}
+            type="button"
+          >
+            {passwordType === 'password' ? (
+              <AiOutlineEye />
+            ) : (
+              <AiOutlineEyeInvisible />
+            )}
+          </button>
+        </div>
       </>
     )
   }

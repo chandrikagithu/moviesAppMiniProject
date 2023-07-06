@@ -1,5 +1,5 @@
 .movie-detail-bg-container {
-  height: 110vh;
+  height: 120vh;
   background-color: #131313;
 }
 .detail-title {
@@ -60,7 +60,7 @@
   font-size: 14px;
   font-family: 'Roboto';
   line-height: 16px;
-  color: #94a3b8;
+  color: red;
 }
 @media screen and (min-width: 768px) {
   .movie-content-title {
@@ -73,7 +73,7 @@
   color: #ffffff;
   padding: 0px;
   font-family: 'Roboto';
-  line-height: 24px;
+  line-height: 20px;
 }
 .movie-content-description {
   font-family: 'Roboto';

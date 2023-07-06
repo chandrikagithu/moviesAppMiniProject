@@ -86,6 +86,20 @@
   border: none;
   outline: none;
   color: #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+}
+.input-value-field {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: white;
+}
+.eye-button {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  color: whitesmoke;
 }
 @media screen and (min-width: 768px) {
   .input-field {
